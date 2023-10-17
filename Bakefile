@@ -1,0 +1,11 @@
+
+
+install:
+	install -m 755 bake ~/.local/bin/ 
+
+uninstall:
+	echo -e "😭🍞"
+	rm ~/.local/bin/bake
+
+test:
+	echo -e "🍞 Bake 🍞"

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set +e
+extra=""
+if [ -f Bakefile ]; then
+    extra="-f Bakefile"
+fi
+
+make $extra $@
+err=$?
+
+set -e
+
+
+USE_EMOJI=1
+
+if [ $USE_EMOJI -eq 1 ]; then
+    OK="  🍞  "
+    ER="🔥🍞🔥"
+else
+    OK="  OK  "
+    ER="  ER  "
+fi
+
+echo  -e '\n'
+if [ $err -eq 0 ]; then
+    echo "${OK} Bread is done!"
+else
+    echo "${ER} YOU BURNED THE BREAD!"
+fi
+
+exit $err
